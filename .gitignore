@@ -2,6 +2,5 @@
 .gitignore
 .idea/
 mp-generator.iml
-src/main/resources/
 src/test/
 target/
