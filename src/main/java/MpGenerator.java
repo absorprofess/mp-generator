@@ -60,11 +60,11 @@ public class MpGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://101.37.38.230:3306/zhujian?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://xxxxx:3306/zhujian?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("eoner.com");
+        dsc.setUsername("xxxx");
+        dsc.setPassword("xxxx");
         mpg.setDataSource(dsc);
 
         // 包配置
