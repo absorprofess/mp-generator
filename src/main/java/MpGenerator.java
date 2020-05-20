@@ -35,7 +35,7 @@ public class MpGenerator {
         System.out.println(help.toString());
         if (scanner.hasNext()) {
             String ipt = scanner.next();
-            if (StringUtils.isNotEmpty(ipt)) {
+            if (StringUtils.isNotBlank(ipt)) {
                 return ipt;
             }
         }
@@ -60,19 +60,18 @@ public class MpGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://xxxxx:3306/zhujian?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://xxx:3306/test?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("xxxx");
-        dsc.setPassword("xxxx");
+        dsc.setUsername("xxx");
+        dsc.setPassword("xxx");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         // pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.eoner");
+        pc.setParent("xxx.xxx");
         mpg.setPackageInfo(pc);
-        //pc.setXml("xml");
         // 自定义配置
         InjectionConfig cfg = new InjectionConfig() {
             @Override
@@ -80,7 +79,6 @@ public class MpGenerator {
                 // to do nothing
             }
         };
-
         // 如果模板引擎是 freemarker
         String templatePath = "/templates/mapper.xml.ftl";
         // 如果模板引擎是 velocity
@@ -131,6 +129,7 @@ public class MpGenerator {
         //strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
         //strategy.setSuperEntityColumns("id");
+        strategy.setLogicDeleteFieldName("isdel");
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");

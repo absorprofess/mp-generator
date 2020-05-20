@@ -4,3 +4,5 @@
 mp-generator.iml
 src/test/
 target/
+src/main/resources/
+src/main/java/com/
